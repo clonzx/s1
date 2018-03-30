@@ -33,7 +33,7 @@ function MobileCheck() {
       }else{
 	 if (ns) ns.style.display = "none";
 	 if (gk) gk.style.display = "inline";
-      	 var gameInstance = UnityLoader.instantiate("gameContainer", "https://clonzx.github.io/s1/Build/BntGL.json", {onProgress: UnityProgress});
+      	 var gameInstance = UnityLoader.instantiate("gameContainer", "Build/BntGL.json", {onProgress: UnityProgress});
 	 if (mk) mk.style.display = "none";
 	 return gameInstance;
       }

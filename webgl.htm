@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>"Upcoming games" studio</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script type="text/javascript" src="https://vkontakte.ru/js/api/xd_connection.js?2"></script>	
+    <script src="TemplateData/SoonProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script src="mobileCheck.js"></script>
+  </head>
+  <body>
+      <div id="mobileContainer" style="width: 960px; height: 300px">
+        <img id="storeIcon" src="https://pp.userapi.com/c621702/v621702228/69b1f/jDsF9ydZYuY.jpg" width="128" height="128"/>
+	<br><br>
+	<a href="https://play.google.com/store/apps/details?id=xyz.upgamess.mspace" target="_blank"><img id="GooglePlay" src="googleplay.png" width="256" height="64" alt="GooglePlay"/><br><br></a>
+        <a href="https://play.google.com/store/apps/details?id=xyz.upgamess.mspace" target="_blank"><img id="AppStore" src="appstore.png" width="256" height="64" alt="AppStore"/></a>
+      </div>
+      <div id="notSupported" style="width: 960px; height: 20px">
+        <img id="storeIcon" src="https://pp.userapi.com/c621702/v621702228/69b1f/jDsF9ydZYuY.jpg" width="128" height="128"/>
+	<br><br>
+	Sorry! Platform not supported!	 
+      </div>
+    <div class="webgl-content" id="webglContent">
+      <div id="gameContainer" style="width: 0px; height: 0px"></div>
+      <img id="PreLoadImg" src="TemplateData/zastavka.jpg" width="1000" height="600"/>
+      <img id="PreLoadProcess" style="position:absolute;left:750px;top: 465px;width: 100px; height: 100px;" src="TemplateData/loading.gif">
+      <div class="footer">
+        <div class="soonprogress" id="soonprogress">
+	  <div style="position:absolute;top: 600px;width: 200px; height: 20px"><img src="https://bsnts.herokuapp.com/TemplateData/progressEmpty.Light.png" style="width: 100%;height:100%"></div>
+	  <div style="position:absolute;top: 600px;width: 200px; height: 20px;"><img id="soonprogressFull" src="https://bsnts.herokuapp.com/TemplateData/progressFull.Light.png" style="width: 0%;height:100%"></div>
+	  <div id="soonprogressText" style="position:absolute;left:10px;top: 595px;width: 200px; height: 20px;display:none;">Preparing...</div>	
+	</div>
+	
+	<div><input type="text" name="pasteTo" id="pasteTo" style="display:none;"> <input id="insertButton" type="button" value="insert 2 Studio" onclick="pasteTo()" style="display:none;"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Fullscreen</div>
+      </div>
+    </div>
+
+
+<script type="text/javascript" language="javascript">
+<!--
+function pasteTo() {
+    var str = document.getElementById("pasteTo").value;
+	gameInstance.SendMessage("Main", "pasteTo", str);
+	gameInstance.SendMessage("GO", "pasteTo", str);	
+	
+//	alert(str);
+}
+
+function VkShareUpGS(_id,_msg,_att,_addmsg) {
+//Пример вызова VkShareUpGS(220095948,'#metalspace','photo220095948_456239028,https://vk.com/app5224140_220095948','App Store: https://goo.gl/v3eA1U')"
+var param={owner_id:_id,message:_msg+'\n'+_addmsg,attachments:_att};
+VK.api('wall.post', param, function(data)
+{var resp;
+	if (data.response){
+		resp = data.response.toXml('response', true);
+	}else{ 
+		resp = data.error.toXml('error', false);
+	}
+}	);
+} 
+                    
+
+function Code(txt,key,callback)
+{
+inpdata=escape(txt); 
+outdata="";
+passwd=key;
+encodeblowfish();
+   
+    SendMessage("GO", callback, outdata);
+}
+function Decode(txt,key,callback)
+{
+inpdata=txt;
+outdata="";
+passwd=key;
+decodeblowfish();
+outdata=unescape(outdata);   
+    SendMessage("GO", callback, outdata);
+}
+
+
+
+ var callbacksResults = document.getElementById('callbacks');
+
+function SyncFiles()
+{
+ FS.syncfs(false,function (err) {
+     //alert('syncing fs');
+ });
+}
+-->
+
+  var gameInstance=MobileCheck();
+</script>
+
+  </body>
+</html>

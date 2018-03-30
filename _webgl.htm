@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Bots and Towers Beginning</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <script src="TemplateData/UnityProgress.js"></script>
+  </head>
+  <body class="template">
+    <p class="header"><span>Unity WebGL Player | </span>Bots and Towers Beginning</p>
+    <div class="template-wrap clear">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="1000px"></canvas>
+      <br>
+      <div class="logo"></div>
+      <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+      <div class="title">Bots and Towers Beginning</div>
+    </div>
+    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 268435456,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/BntGL.data",
+    codeUrl: "Release/BntGL.js",
+    memUrl: "Release/BntGL.mem",
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
+<script type="text/javascript" src="http://vkontakte.ru/js/api/xd_connection.js?2"></script>
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function Code(txt,key,callback)
+{
+inpdata=escape(txt); 
+outdata="";
+passwd=key;
+encodeblowfish();
+   
+    SendMessage("GO", callback, outdata);
+}
+function Decode(txt,key,callback)
+{
+inpdata=txt;
+outdata="";
+passwd=key;
+decodeblowfish();
+outdata=unescape(outdata);   
+    SendMessage("GO", callback, outdata);
+}
+
+
+
+ function order(iname) {
+    var params = {
+      type: 'item',
+      item: iname
+    };
+    VK.callMethod('showOrderBox', params);
+  }
+
+  var callbacksResults = document.getElementById('callbacks');
+
+  VK.addCallback('onOrderSuccess', onOrderSuccess);
+  VK.addCallback('onOrderFail', onOrderFail);
+  VK.addCallback('onOrderCancel', onOrderCancel);
+  VK.addCallback('onToggleFlash',onToggleFlash);
+  VK.addCallback('onWindowFocus',onWindowFocus);
+  VK.addCallback('onWindowBlur',onWindowBlur);
+  
+
+function onWindowBlur()
+{
+  document.getElementById('canvas').style.visibility = 'hidden';
+}
+
+function onWindowFocus()
+{
+  document.getElementById('canvas').style.visibility = 'visible';
+}
+
+function onToggleFlash(show)
+{
+  var  unity =document.getElementById('canvas');
+  if (show)
+    unity.style.visibility = 'visible';
+  else
+    unity.style.visibility = 'hidden';
+}
+
+
+function onOrderSuccess()
+{
+   document.getElementById('canvas').style.visibility = 'visible';
+   SendMessage("GO", "OrderCallback", "success");
+}
+
+
+function onOrderFail()
+{
+   document.getElementById('canvas').style.visibility = 'visible';
+   SendMessage("GO", "OrderCallback", "fail");  
+
+}
+
+function onOrderCancel()
+{
+   document.getElementById('canvas').style.visibility = 'visible';
+   SendMessage("GO", "OrderCallback", "cancel");  
+}
+
+-->
+</script>
+
+  </body>
+</html>

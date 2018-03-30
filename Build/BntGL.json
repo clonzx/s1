@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 1048576000,
+"dataUrl": "BntGL.data.unityweb",
+"asmCodeUrl": "BntGL.asm.code.unityweb",
+"asmMemoryUrl": "BntGL.asm.memory.unityweb",
+"asmFrameworkUrl": "BntGL.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}

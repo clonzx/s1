@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Unity Web Player | Empty</title>
+		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 1000, 
+				height: 600,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "https://dl.dropboxusercontent.com/u/37116416/bnt.unity3d");
+			});
+		-->
+		</script>
+
+
+<script type="text/javascript" src="http://vkontakte.ru/js/api/xd_connection.js?2"></script>
+
+<script type="text/javascript" language="javascript">
+<!--
+function GetLevel()
+{
+    var unity = u.getUnity();
+    unity.SendMessage("GO","SetMap", "AutoSave.json");
+    unity.SendMessage("GO","SetLevel", "Build");	
+}
+
+function Code(txt,key,callback)
+{
+inpdata=escape(txt); 
+outdata="";
+passwd=key;
+encodeblowfish();
+   
+    var unity = u.getUnity();
+    unity.SendMessage("GO", callback, outdata);
+}
+function Decode(txt,key,callback)
+{
+inpdata=txt;
+outdata="";
+passwd=key;
+decodeblowfish();
+outdata=unescape(outdata);   
+    var unity = u.getUnity();
+    unity.SendMessage("GO", callback, outdata);
+}
+
+
+
+ function order(iname) {
+    var params = {
+      type: 'item',
+      item: iname
+    };
+    VK.callMethod('showOrderBox', params);
+  }
+
+  var callbacksResults = document.getElementById('callbacks');
+
+  VK.addCallback('onOrderSuccess', onOrderSuccess);
+  VK.addCallback('onOrderFail', onOrderFail);
+  VK.addCallback('onOrderCancel', onOrderCancel);
+  VK.addCallback('onToggleFlash',onToggleFlash);
+  VK.addCallback('onWindowFocus',onWindowFocus);
+  VK.addCallback('onWindowBlur',onWindowBlur);
+  
+
+function onWindowBlur()
+{
+  document.getElementById('unityPlayer').style.visibility = 'hidden';
+}
+
+function onWindowFocus()
+{
+  document.getElementById('unityPlayer').style.visibility = 'visible';
+}
+
+function onToggleFlash(show)
+{
+  var  unity =document.getElementById('unityPlayer');
+  if (show)
+    unity.style.visibility = 'visible';
+  else
+    unity.style.visibility = 'hidden';
+}
+
+
+function onOrderSuccess(order_id)
+{
+   document.getElementById('unityPlayer').style.visibility = 'visible';
+   var unity = u.getUnity();   
+   unity.SendMessage("GO", "OrderCallback", order_id);
+}
+
+
+function onOrderFail(error)
+{
+   document.getElementById('unityPlayer').style.visibility = 'visible';
+   var unity = u.getUnity();
+   unity.SendMessage("GO", "OrderCallback", 0);  
+
+}
+
+function onOrderCancel()
+{
+   document.getElementById('unityPlayer').style.visibility = 'visible';
+   var unity = u.getUnity();
+   unity.SendMessage("GO", "OrderCallback", 0);  
+}
+
+
+-->
+</script>
+
+
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			background-color: white;
+			color: black;
+			text-align: center;
+		}
+		a:link, a:visited {
+			color: #000;
+		}
+		a:active, a:hover {
+			color: #666;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			font-size: x-small;
+		}
+		div.content {
+			margin: auto;
+			width: 1000px;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border-width: 0px;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 600px;
+			width: 1000px;
+		}
+		-->
+		</style>
+	</head>
+	<body style="margin-top: 0px; margin-left: 0px;">
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+				<div class="broken">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+<!--
+		<br><br>
+		<H1>
+		Mobile App
+		<br>
+		<a href="https://dl.dropboxusercontent.com/u/37116416/Empty.apk" title="Android version">
+			<img alt="Android version" src="android.png" width="50" height="50" />
+		</a>
+		</H1>
+-->
+	</body>
+</html>

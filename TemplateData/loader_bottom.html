@@ -1,0 +1,26 @@
+    <div class="webgl-content" id="webglContent" style="display: none;"> 
+      <div id="gameContainer" style="width: 0px; height: 0px"></div>
+      <img id="PreLoadImg" src="TemplateData/zastavka.jpg" width="1000" height="600"/>
+      <img id="PreLoadProcess" style="position:absolute;left:750px;top: 465px;width: 100px; height: 100px;" src="TemplateData/loading.gif">
+      <div class="footer">
+        <div class="soonprogress" id="soonprogress">
+	  <div style="position:absolute;top: 600px;width: 200px; height: 20px"><img src="TemplateData/progressEmpty.Light.png" style="width: 100%;height:100%"></div>
+	  <div style="position:absolute;top: 600px;width: 200px; height: 20px;"><img id="soonprogressFull" src="TemplateData/progressFull.Light.png" style="width: 0%;height:100%"></div>
+	  <div id="soonprogressText" style="position:absolute;left:10px;top: 595px;width: 200px; height: 20px;display:none;">Preparing...</div>	
+	</div>
+	
+	<div><input type="text" name="pasteTo" id="pasteTo" style="display:none;"> <input id="insertButton" type="button" value="insert 2 Studio" onclick="pasteTo()" style="display:none;"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Fullscreen</div>
+      </div>
+    </div>
+
+
+<script type="text/javascript" language="javascript">
+  var gameInstance=MobileCheck();
+</script>
+
+  </body>
+</html>
+                                                                                                                
+                                                                                                                 
